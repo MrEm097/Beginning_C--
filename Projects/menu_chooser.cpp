@@ -1,9 +1,19 @@
+// Выбор сложности игры
+// Реализация перечисления и switch case
 #include <iostream>
 using namespace std;
+
+enum difficulty
+{
+    EASY,
+    NORMAL,
+    HARD
+};
 
 int main()
 {
     int num = 0;
+
     cout << "Difficulty:\n"
          << "Easy - 1\n"
          << "Normal - 2\n"
@@ -12,18 +22,22 @@ int main()
 
     cin >> num;
 
-    if (num == 1)
+    cout << "You picked ";
+
+    switch (num - 1)
     {
-        cout << "You picked Easy";
-    }
-    else if (num == 2)
-    {
-        cout << "You picked Normal";
-    }
-    else if (num == 3)
-    {
-        cout << "You picked Hard";
-    }
-    else
+    case difficulty::EASY:
+        cout << "Easy";
+        break;
+    case difficulty::NORMAL:
+        cout << "Normal";
+        break;
+    case difficulty::HARD:
+        cout << "Hard";
+        break;
+
+    default:
         cout << "Error";
+        break;
+    }
 }
